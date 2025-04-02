@@ -9,7 +9,8 @@ class Program
         Console.WriteLine("Exercicio 1 - Primeiro programa");
         Console.WriteLine("Exercicio 2 - Cifrador");
         Console.WriteLine("Exercicio 3 - Calculadora de matemática");
-        Console.WriteLine("Exercicio 4 - Formulário de cadastro");
+        Console.WriteLine("Exercicio 4 - Dias até o próximo aniversário");
+        Console.WriteLine("Exercicio 5 - Dias restantes para formatura");
 
         var opcao = Console.ReadLine();
 
@@ -24,9 +25,12 @@ class Program
             case "3":
                 CalculadoraMatematica.Executar();
                 break;
-            /*           case "4":
-                           FormularioCadastro.Executar();
-                           break;*/
+            case "4":
+                ManipulacaoDatas.Executar();
+                break;
+            case "5":
+                DiferencaDatas.Executar();
+                break;
             default:
                 Console.WriteLine("Opção inválida!");
                 break;

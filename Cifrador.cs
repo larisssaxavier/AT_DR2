@@ -22,8 +22,7 @@ namespace AT_DR2
         public static void Executar()
         {
             Console.WriteLine("Digite seu nome:");
-            var nome = Console.ReadLine();
-            var nomeCifrado = CifrarNome(nome);
+            var nomeCifrado = CifrarNome(Console.ReadLine());
             Console.WriteLine($"Nome cifrado: {nomeCifrado}");
         }
     }
