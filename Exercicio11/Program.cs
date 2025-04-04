@@ -1,5 +1,4 @@
-﻿using System;
-class Program
+﻿class Program
 {
     private static string ArquivoContatos = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\..\arquivoContatos.txt");
 
