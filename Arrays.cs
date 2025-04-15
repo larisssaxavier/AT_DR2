@@ -17,7 +17,7 @@ public class Arrays
             Console.WriteLine("3. Sair");
             Console.Write("Escolha uma opção: ");
 
-            string opcao = Console.ReadLine();
+            string opcao = Console.ReadLine() ?? string.Empty;
 
             switch (opcao)
             {
@@ -29,13 +29,20 @@ public class Arrays
                     }
 
                     Console.Write("Nome do produto: ");
-                    nomes[totalProdutos] = Console.ReadLine();
+                    nomes[totalProdutos] = Console.ReadLine() ?? string.Empty;
 
                     Console.Write("Quantidade: ");
-                    quantidades[totalProdutos] = int.Parse(Console.ReadLine());
-
+                    if (!int.TryParse(Console.ReadLine(), out quantidades[totalProdutos]))
+                    {
+                        Console.WriteLine("Quantidade inválida!");
+                        continue;
+                    }
                     Console.Write("Preço unitário (ex.: 12,56): ");
-                    precos[totalProdutos] = decimal.Parse(Console.ReadLine());
+                    if (!decimal.TryParse(Console.ReadLine(), out precos[totalProdutos]))
+                    {
+                        Console.WriteLine("Quantidade inválida!");
+                        continue;
+                    }
 
                     totalProdutos++;
                     Console.WriteLine("Produto cadastrado com sucesso!");

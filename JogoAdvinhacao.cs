@@ -1,6 +1,6 @@
-﻿class Program
+﻿class JogoAdvinhacao
 {
-    static void Main()
+    public static void Executar()
     {
         Random random = new Random();
         int numeroAdvinhar = random.Next(1, 51);
@@ -15,7 +15,11 @@
             try
             {
                 Console.Write($"Tentativa {6 - tentativasRestantes}: Digite um número: ");
-                int palpite = int.Parse(Console.ReadLine());
+                if (!int.TryParse(Console.ReadLine(), out int palpite))
+                {
+                    Console.WriteLine("Valor inválido! Digite um número.");
+                    continue;
+                }
 
                 if (palpite < 1 || palpite > 50)
                 {

@@ -1,15 +1,15 @@
-﻿class Program
+﻿class ManipulacaoArquivos
 {
     private static string ArquivoContatos = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\..\arquivoContatos.txt");
 
-    static void Main()
+    public static void Executar()
     {
         CriarArquivoSeNaoExistir();
 
         while (true)
         {
             ExibirMenu();
-            string opcao = Console.ReadLine();
+            string opcao = Console.ReadLine() ?? string.Empty;
 
             switch (opcao)
             {
@@ -57,13 +57,13 @@
             Console.WriteLine("\n-- Novo Contato --");
 
             Console.Write("Nome: ");
-            string nome = Console.ReadLine();
+            string nome = Console.ReadLine() ?? string.Empty;
 
             Console.Write("Telefone: ");
-            string telefone = Console.ReadLine();
+            string telefone = Console.ReadLine() ?? string.Empty;
 
             Console.Write("Email: ");
-            string email = Console.ReadLine();
+            string email = Console.ReadLine() ?? string.Empty;
 
             if (string.IsNullOrWhiteSpace(nome) || string.IsNullOrWhiteSpace(telefone) || string.IsNullOrWhiteSpace(email))
             {

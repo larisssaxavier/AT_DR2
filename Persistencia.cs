@@ -23,7 +23,7 @@ public class Persistencia
             Console.WriteLine("3. Sair");
             Console.Write("Escolha uma opção: ");
 
-            string opcao = Console.ReadLine();
+            string opcao = Console.ReadLine() ?? string.Empty;
 
             switch (opcao)
             {
@@ -51,13 +51,23 @@ public class Persistencia
         try
         {
             Console.Write("Nome do produto: ");
-            string nome = Console.ReadLine();
+            string nome = Console.ReadLine() ?? string.Empty;
 
             Console.Write("Quantidade: ");
-            int quantidade = int.Parse(Console.ReadLine());
+            string? inputQuantidade = Console.ReadLine();
+            if (!int.TryParse(inputQuantidade, out int quantidade))
+            {
+                Console.WriteLine("Quantidade inválida!");
+                return;
+            }
 
             Console.Write("Preço unitário: ");
-            decimal preco = decimal.Parse(Console.ReadLine());
+            string? inputPreco = Console.ReadLine();
+            if (!decimal.TryParse(inputPreco, out decimal preco))
+            {
+                Console.WriteLine("Preço inválido!");
+                return;
+            }
 
             using (StreamWriter sw = File.AppendText(arquivoEstoque))
             {
@@ -99,7 +109,7 @@ public class Persistencia
                 {
                     string nome = dados[0].Trim();
                     string quantidadeStr = dados[1].Trim();
-                    string precoStr = string.Join(",", dados, 2, dados.Length - 2).Trim(); // Junta caso o preço esteja com vírgula
+                    string precoStr = string.Join(",", dados, 2, dados.Length - 2).Trim(); 
 
                     if (int.TryParse(quantidadeStr, out int quantidade) &&
                         decimal.TryParse(precoStr.Replace('.', ','), out decimal preco))

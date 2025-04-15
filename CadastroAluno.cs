@@ -1,8 +1,8 @@
 ﻿using System;
 
-class Program
+class CadastroAluno
 {
-    static void Main(string[] args)
+    public static void Executar()
     {
         Aluno aluno = new Aluno
         {

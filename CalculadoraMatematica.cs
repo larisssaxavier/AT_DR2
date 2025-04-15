@@ -27,12 +27,12 @@ namespace AT_DR2
         }
         public static double verificaNumero(string entrada)
         {
-            if (!double.TryParse(entrada, out double valor))
+            if (string.IsNullOrWhiteSpace(entrada))
             {
                 Console.WriteLine("Digite um número válido");
-                return verificaNumero(Console.ReadLine());
+                return verificaNumero(Console.ReadLine() ?? "0");
             }
-            return valor;
+            return double.Parse(entrada);
         }
         public static void opcoes(int operacao, double numero1, double numero2)
         {
@@ -63,9 +63,9 @@ namespace AT_DR2
         public static void Executar()
         {
             Console.WriteLine("Digite o primeiro número: ");
-            double numero1 = verificaNumero(Console.ReadLine());
+            double numero1 = verificaNumero(Console.ReadLine() ?? "0");
             Console.WriteLine("Digite o segundo número: ");
-            double numero2 = verificaNumero(Console.ReadLine());
+            double numero2 = verificaNumero(Console.ReadLine() ?? "0");
 
             Console.WriteLine("Digite a operação desejada: ");
             Console.WriteLine("1 - Soma");

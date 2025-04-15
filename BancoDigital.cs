@@ -1,6 +1,6 @@
-﻿public class Program
+﻿public class BancoDigital
 {
-    static void Main(string[] args)
+    public static void Executar()
     {
         ContaBancaria contaLarissa = new ContaBancaria("Larissa", 25);
         Console.WriteLine("Bem-vindo ao sistema bancário!\n");

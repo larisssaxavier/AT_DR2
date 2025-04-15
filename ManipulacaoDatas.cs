@@ -4,8 +4,11 @@ namespace AT_DR2
 {
     class ManipulacaoDatas
     {
-        public static string calculoData(string data)
+        public static string calculoData(string? data)
         {
+            if (string.IsNullOrWhiteSpace(data))
+                return "Data inválida. Digite novamente no formato dd/mm/aaaa.";
+
             if (DateTime.TryParse(data, out DateTime dataNascimento))
             {
                 DateTime hoje = DateTime.Today;

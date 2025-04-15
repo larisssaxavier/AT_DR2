@@ -1,8 +1,8 @@
-﻿class Program
+﻿class ManipulacaoArquivoExibicao
 {
     private static string arquivoContatos = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\..\contatos.txt");
 
-    static void Main()
+    public static void Executar()
     {
         List<Contato> contatos = CarregarContatos();
 
@@ -14,7 +14,7 @@
             Console.WriteLine("3. Sair");
             Console.Write("Escolha uma opção: ");
 
-            string opcao = Console.ReadLine();
+            string opcao = Console.ReadLine() ?? string.Empty;
             switch (opcao)
             {
                 case "1":
@@ -36,11 +36,11 @@
     static void InserirContato(List<Contato> contatos)
     {
         Console.Write("Nome: ");
-        string nome = Console.ReadLine();
+        string nome = Console.ReadLine() ?? string.Empty;
         Console.Write("Telefone: ");
-        string telefone = Console.ReadLine();
+        string telefone = Console.ReadLine() ?? string.Empty;
         Console.Write("Email: ");
-        string email = Console.ReadLine();
+        string email = Console.ReadLine() ?? string.Empty;
 
         contatos.Add(new Contato { Nome = nome, Telefone = telefone, Email = email });
         SalvarContatos(contatos);
@@ -55,7 +55,7 @@
         Console.WriteLine("3. Texto Puro");
         Console.Write("Opção: ");
 
-        string escolha = Console.ReadLine();
+        string escolha = Console.ReadLine() ?? string.Empty;
         Formatador formatter;
 
         switch (escolha)

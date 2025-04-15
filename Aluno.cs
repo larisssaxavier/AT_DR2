@@ -2,9 +2,9 @@
 
 class Aluno
 {
-    public string Nome { get; set; }
-    public string Matricula { get; set; }
-    public string Curso { get; set; }
+    public string? Nome { get; set; }
+    public string? Matricula { get; set; }
+    public string? Curso { get; set; }
     public double MediaNotas { get; set; }
 
     public void ExibirDados()

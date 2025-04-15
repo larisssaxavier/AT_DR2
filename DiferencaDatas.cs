@@ -11,7 +11,7 @@ namespace AT_DR2
             while (true)
             {
                 Console.WriteLine("Digite uma data no formato dd/mm/aaaa :");
-                string input = Console.ReadLine();
+                string input = Console.ReadLine() ?? string.Empty;
 
                 if (DateTime.TryParseExact(input, "dd/MM/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out dataValidada))
                 {
@@ -34,13 +34,13 @@ namespace AT_DR2
             if (dataAtual > DateTime.Now)
             {
                 Console.WriteLine("Erro: A data informada não pode ser no futuro!");
-                return;
+                return -1;
             }
 
             if (dataAtual > dataFormatura)
             {
                 Console.WriteLine("Parabéns! Você já deveria estar formado!");
-                return;
+                return 0;
             }
 
             TimeSpan diferenca = dataFormatura - dataAtual;
@@ -54,7 +54,7 @@ namespace AT_DR2
 
             if (diasRestantes < 0)
             {
-                return;
+                return 0;
             }
 
             if (diasRestantes < 180)
@@ -68,6 +68,7 @@ namespace AT_DR2
             {
                 Console.WriteLine($"Faltam {diasRestantes} dias para a sua formatura.");
             }
+            return diasRestantes;
         }
         public static void Executar()
         {

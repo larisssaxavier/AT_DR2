@@ -1,6 +1,6 @@
-﻿class Program
+﻿class CadastroFuncionario
 {
-    public static void Main(string[] args)
+    public static void Executar()
     {
         Funcionario funcionario = new Funcionario("Larissa", "Estagiaria", 3000m);
         Console.WriteLine("Dados do Funcionário:");

@@ -4,9 +4,12 @@ namespace AT_DR2
 {
     class Cifrador
     {
-        public static string CifrarNome(string nome)
+        public static string CifrarNome(string? nome)
         {
             char[] caracteres = nome.ToCharArray();
+
+            if (string.IsNullOrWhiteSpace(nome))
+                return string.Empty;
 
             for (int i = 0; i < caracteres.Length; i++)
             {
